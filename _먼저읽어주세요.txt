@@ -1,0 +1,23 @@
+[ rami-intl.com → GitHub Pages 이전 패키지 ]
+
+■ 이 폴더에 들어있는 것 (Claude가 만든 최신본):
+  - index.html, about.html, usb-camera.html  (AI검색 구조화데이터 반영본)
+  - robots.txt, sitemap.xml, llms.txt
+  - CNAME  (커스텀 도메인 연결용 - 절대 삭제/수정 금지)
+  - datasheets/  (LYNX 데이터시트 PDF 9종)
+
+■ 반드시 "직접 추가"해야 하는 것 (가비아 서버에서 WinSCP로 내려받아 이 폴더에 합치기):
+  - thermal.html      (열상 모듈 페이지)
+  - anti-drone.html   (안티드론 페이지)
+  - contact.html      (문의 페이지)
+  - privacy.html      (있으면)
+  - assets/ 폴더 전체 (logo.png, about-hero.jpg, thermal-hero.jpg 등 모든 이미지)
+    ※ 이게 없으면 로고와 이미지가 안 뜹니다!
+
+■ 합친 최종 폴더 구조 예시:
+  index.html / about.html / usb-camera.html / thermal.html / anti-drone.html
+  / contact.html / privacy.html / robots.txt / sitemap.xml / llms.txt / CNAME
+  / assets/(이미지들) / datasheets/(PDF들)
+
+■ 그다음: 이 전체를 GitHub 저장소에 올리고 Pages 활성화 → 가비아 DNS의 A레코드만 변경.
+  (자세한 순서는 Claude 채팅 참고. 메일 MX는 절대 건드리지 마세요!)

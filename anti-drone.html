@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anti-Drone Jammer | 라미인터네셔널</title>
+<meta name="description" content="드론스나이퍼, 차량형 재머 등 안티드론 솔루션. 라미인터네셔널 공급.">
+<style>
+  :root {
+    --burgundy: #6b1423;
+    --burgundy-dark: #4e0e19;
+    --gold: #c8a882;
+    --gold-light: #e8d5bb;
+    --cream: #f7f4f2;
+    --white: #ffffff;
+    --text-dark: #1a1210;
+    --text-mid: #6b5c55;
+    --text-muted: #9c8880;
+    --border: #e8e0dc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Apple SD Gothic Neo","Noto Sans KR",-apple-system,sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.6; }
+  a { text-decoration: none; color: inherit; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 3rem; height: 68px; background: var(--white); border-bottom: 0.5px solid var(--border); }
+  .logo-wrap { display: flex; align-items: center; gap: 12px; }
+  .logo-img { width: 42px; height: 42px; object-fit: contain; border-radius: 9px; }
+  .logo-text { display: flex; flex-direction: column; }
+  .logo-main { font-size: 14px; font-weight: 600; color: var(--text-dark); letter-spacing: 0.05em; }
+  .logo-sub { font-size: 10px; color: var(--text-muted); letter-spacing: 0.08em; margin-top: 1px; }
+  .nav-menu { display: flex; }
+  .nav-item { font-size: 13px; color: var(--text-mid); padding: 0 16px; height: 68px; display: flex; align-items: center; border-bottom: 2px solid transparent; letter-spacing: 0.03em; transition: color 0.2s, border-color 0.2s; }
+  .nav-item:hover, .nav-item.active { color: var(--burgundy); border-bottom-color: var(--burgundy); }
+  .nav-right { display: flex; align-items: center; gap: 12px; }
+  .nav-lang { font-size: 11px; color: var(--burgundy); border: 0.5px solid var(--gold); padding: 5px 12px; border-radius: 4px; transition: background 0.2s; }
+  .nav-lang:hover { background: var(--gold-light); }
+  .nav-contact { font-size: 12px; background: var(--burgundy); color: var(--white); padding: 8px 18px; border-radius: 4px; transition: background 0.2s; }
+  .nav-contact:hover { background: var(--burgundy-dark); }
+
+  /* PAGE HEADER */
+  .page-header { background: var(--burgundy); padding: 4rem 3.5rem 3.5rem; position: relative; overflow: hidden; }
+  .page-header::after { content: ""; position: absolute; right: -60px; top: -60px; width: 320px; height: 320px; border-radius: 50%; border: 1px solid rgba(200,168,130,0.15); }
+  .ph-label { font-size: 11px; color: var(--gold); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 12px; }
+  .ph-title { font-size: 36px; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+  .ph-sub { font-size: 14px; color: rgba(255,255,255,0.55); }
+
+  /* PRODUCT NAV TABS */
+  .prod-tabs { background: var(--white); border-bottom: 0.5px solid var(--border); display: flex; padding: 0 3.5rem; }
+  .prod-tab { font-size: 13px; color: var(--text-muted); padding: 1rem 1.5rem; border-bottom: 2px solid transparent; cursor: pointer; letter-spacing: 0.03em; transition: color 0.2s; }
+  .prod-tab:hover { color: var(--burgundy); }
+  .prod-tab.active { color: var(--burgundy); border-bottom-color: var(--burgundy); font-weight: 600; }
+
+  /* SECTION */
+  .section { padding: 4rem 3.5rem; }
+  .section-white { background: var(--white); }
+  .section-cream { background: var(--cream); }
+  .sec-label { font-size: 11px; color: var(--gold); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 8px; }
+  .sec-title { font-size: 26px; font-weight: 600; color: var(--text-dark); margin-bottom: 1rem; }
+  .sec-desc { font-size: 14px; color: var(--text-mid); line-height: 1.9; max-width: 720px; margin-bottom: 2rem; }
+
+  /* VIDEO */
+  .video-wrap { position: relative; width: 100%; padding-top: 52%; border-radius: 10px; overflow: hidden; margin-bottom: 2.5rem; }
+  .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+  /* PHOTO GRID */
+  .photo-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 2.5rem; }
+  .photo-grid-4 img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; }
+
+  .photo-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 2.5rem; }
+  .photo-grid-2 img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 8px; }
+
+  /* HERO IMG */
+  .hero-img { width: 100%; max-height: 420px; object-fit: contain; border-radius: 10px; margin-bottom: 2rem; background: #f0f0f0; }
+
+  /* BENEFITS */
+  .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 2.5rem; }
+  .benefit-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 10px; padding: 20px; }
+  .bc-title { font-size: 13px; font-weight: 600; color: var(--burgundy); margin-bottom: 6px; }
+  .bc-desc { font-size: 12px; color: var(--text-muted); line-height: 1.75; }
+
+  /* COMPARISON TABLE */
+  .sec-subtitle { font-size: 16px; font-weight: 600; color: var(--text-dark); margin-bottom: 1rem; text-align: center; }
+  .comp-table { width: 100%; border-collapse: collapse; margin-bottom: 2.5rem; }
+  .comp-table th, .comp-table td { padding: 14px 16px; text-align: center; font-size: 13px; border-bottom: 0.5px solid var(--border); }
+  .comp-table thead th { background: var(--cream); font-weight: 600; color: var(--text-muted); font-size: 12px; }
+  .comp-table thead th.highlight { background: var(--burgundy); color: var(--white); border-radius: 6px 6px 0 0; }
+  .comp-table tbody td.highlight { color: var(--burgundy); font-weight: 600; }
+  .comp-table tbody tr:last-child td { border-bottom: none; }
+
+  /* FEATURE LIST */
+  .feature-list { margin-bottom: 2rem; }
+  .feature-item { padding: 16px 0; border-bottom: 0.5px solid var(--border); }
+  .feature-item:last-child { border-bottom: none; }
+  .fi-title { font-size: 14px; font-weight: 600; color: var(--burgundy); margin-bottom: 6px; }
+  .fi-desc { font-size: 13px; color: var(--text-mid); line-height: 1.8; }
+
+  /* FEATURE BADGES */
+  .feature-badges { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 2rem; }
+  .fb-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 10px; padding: 20px 24px; }
+  .fb-head { font-size: 15px; font-weight: 700; color: var(--burgundy); margin-bottom: 8px; }
+  .fb-item { font-size: 13px; color: var(--text-mid); padding: 4px 0; }
+
+  /* DIAGRAM */
+  .diagram-img { width: 100%; max-width: 600px; display: block; margin: 0 auto 2rem; }
+
+  /* DIVIDER */
+  .prod-divider { border: none; border-top: 3px solid var(--burgundy); margin: 0; }
+
+  /* CTA */
+  .cta-box { background: var(--burgundy); border-radius: 10px; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 2rem; }
+  .cta-text { font-size: 15px; color: var(--white); font-weight: 500; }
+  .cta-btn { background: var(--white); color: var(--burgundy); font-size: 13px; font-weight: 600; padding: 10px 24px; border-radius: 4px; cursor: pointer; }
+
+  /* FOOTER */
+  footer { background: #1a1210; padding: 1.5rem 3.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-copy { font-size: 12px; color: #4a3c38; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-link { font-size: 12px; color: #4a3c38; transition: color 0.2s; }
+  .footer-link:hover { color: var(--gold); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-menu { display: none; }
+    .page-header { padding: 3rem 1.5rem 2.5rem; }
+    .ph-title { font-size: 26px; }
+    .section { padding: 2.5rem 1.5rem; }
+    .prod-tabs { padding: 0 1.5rem; }
+    .photo-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .feature-badges { grid-template-columns: 1fr; }
+    footer { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo-wrap">
+    <img class="logo-img" src="assets/logo.png" alt="라미인터네셔널 로고" />
+    <div class="logo-text">
+      <span class="logo-main">Rami International</span>
+      <span class="logo-sub">라미인터네셔널 주식회사</span>
+    </div>
+  </a>
+  <div class="nav-menu">
+    <a href="usb-camera.html" class="nav-item">USB 3.2 Camera</a>
+    <a href="thermal.html" class="nav-item">Thermal Module</a>
+    <a href="anti-drone.html" class="nav-item active">Anti-Drone</a>
+    <a href="about.html" class="nav-item">About</a>
+  </div>
+  <div class="nav-right">
+    <a href="/en/" class="nav-lang">EN</a>
+    <a href="contact.html" class="nav-contact">Contact</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="ph-label">Anti-Drone Systems</div>
+  <h1 class="ph-title">안티드론 재밍 시스템</h1>
+  <p class="ph-sub">불법 드론 위협으로부터 주요 시설과 인원을 보호합니다.</p>
+</div>
+
+<!-- PRODUCT TABS -->
+<div class="prod-tabs">
+  <div class="prod-tab active" onclick="showSection('dronesniper', this)">DroneSniper</div>
+  <div class="prod-tab" onclick="showSection('vehiclejammer', this)">Vehicle Jammer</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     DRONE SNIPER
+══════════════════════════════════════ -->
+<div id="dronesniper">
+
+  <!-- 동영상 -->
+  <section class="section section-white">
+    <div class="sec-label">Portable Anti-Drone</div>
+    <h2 class="sec-title">DroneSniper</h2>
+    <p class="sec-desc">DroneSniper는 글로벌 시장에서 가장 신뢰할 수 있는 휴대용 드론 대응 장비 중 하나입니다. 경량·올인원 설계로 1인 운용이 가능하며, 가격 경쟁력과 높은 성능을 동시에 갖추고 있습니다. 경찰·군·주요 인프라 시설에 불법 드론 위협에 대한 최적의 솔루션을 제공합니다.</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/aUrXOr8QQtE" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- 제품 사진 -->
+  <section class="section section-cream">
+    <div class="sec-label">Product Gallery</div>
+    <h2 class="sec-title" style="margin-bottom:1.5rem;">제품 이미지</h2>
+    <div class="photo-grid-4">
+      <img src="assets/drone-sniper-1.jpg" alt="DroneSniper 제품 사진 1" />
+      <img src="assets/drone-sniper-2.jpg" alt="DroneSniper 제품 사진 2" />
+      <img src="assets/drone-sniper-3.jpg" alt="DroneSniper 제품 사진 3" />
+      <img src="assets/drone-sniper-4.jpg" alt="DroneSniper 제품 사진 4" />
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section section-white">
+    <div class="sec-label">Key Benefits</div>
+    <h2 class="sec-title">DroneSniper의 장점</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="bc-title">Light Weight</div>
+        <div class="bc-desc">2kg 미만의 초경량 설계로 최고의 휴대성을 제공합니다.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="bc-title">All-in-One</div>
+        <div class="bc-desc">배터리 내장 총기형 디바이스로 1인 단독 운용이 가능합니다.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="bc-title">Best Coverage</div>
+        <div class="bc-desc">한국 원전 정부 시험에서 DJI Phantom 4 Pro 기준 2.5km 이상 무력화 검증.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="bc-title">Low Power Output</div>
+        <div class="bc-desc">총 출력 4W 미만으로 운용자 안전을 보장하며 부수적 피해가 없습니다.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="bc-title">Easy to Use</div>
+        <div class="bc-desc">콜드 타임 1초 미만, 최소한의 훈련만으로 즉시 운용 가능합니다.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 비교 테이블 -->
+  <section class="section section-cream">
+    <div class="sec-label">Comparison</div>
+    <h2 class="sec-title">경쟁 제품 비교</h2>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>항목</th>
+          <th>경쟁사 A</th>
+          <th>경쟁사 B</th>
+          <th class="highlight">DroneSniper</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>대응 주파수</td>
+          <td>2.4GHz / 5.8GHz / GNSS</td>
+          <td>433MHz / 915MHz / 2.4GHz / 5.8GHz / GNSS</td>
+          <td class="highlight">2.4GHz / 5.8GHz / GNSS</td>
+        </tr>
+        <tr>
+          <td>최대 재밍 거리</td>
+          <td>400m</td>
+          <td>1~2km</td>
+          <td class="highlight">2.4km</td>
+        </tr>
+        <tr>
+          <td>운용 시간</td>
+          <td>2시간</td>
+          <td>2시간</td>
+          <td class="highlight">2시간</td>
+        </tr>
+        <tr>
+          <td>무게</td>
+          <td>6.8kg</td>
+          <td>7.3kg</td>
+          <td class="highlight">2kg</td>
+        </tr>
+        <tr>
+          <td>가격</td>
+          <td>높음</td>
+          <td>중간</td>
+          <td class="highlight">낮음</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cta-box">
+      <div class="cta-text">DroneSniper 상세 스펙시트 및 견적을 요청해보세요.</div>
+      <a href="contact.html" class="cta-btn">문의하기 →</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     VEHICLE JAMMER
+══════════════════════════════════════ -->
+<div id="vehiclejammer" style="display:none;">
+
+  <!-- 히어로 이미지 -->
+  <section class="section section-white">
+    <div class="sec-label">Vehicle-Mounted Anti-Drone</div>
+    <h2 class="sec-title">Vehicle Jammer</h2>
+    <img class="hero-img" src="assets/vehicle-jammer-hero.jpg" alt="Vehicle Jammer" />
+    <p class="sec-desc">Vehicle Jammer는 차량 탑재형 안티드론 재밍 시스템으로, 기동 중에도 강력한 방어 능력을 제공합니다. 혁신적인 액체 냉각 시스템을 탑재해 극히 낮은 소음과 안정적인 장시간 운용이 가능하며, 드론 신호뿐 아니라 20~6000MHz 광대역을 커버합니다. 태국 군이 이 시스템에 만족하여 추가 구매를 진행하고 있습니다.</p>
+  </section>
+
+  <!-- 차량 사진 -->
+  <section class="section section-cream">
+    <div class="sec-label">Product Gallery</div>
+    <h2 class="sec-title" style="margin-bottom:1.5rem;">제품 이미지</h2>
+    <div class="photo-grid-2">
+      <img src="assets/vehicle-jammer-1.jpg" alt="Vehicle Jammer 사진 1" />
+      <img src="assets/vehicle-jammer-2.jpg" alt="Vehicle Jammer 사진 2" />
+    </div>
+  </section>
+
+  <!-- 특징 -->
+  <section class="section section-white">
+    <div class="sec-label">Key Features</div>
+    <h2 class="sec-title">주요 특징</h2>
+    <div class="feature-badges">
+      <div class="fb-card">
+        <div class="fb-head">🔇 Stable</div>
+        <div class="fb-item">· 무소음 운용</div>
+        <div class="fb-item">· 무제한 운용 시간</div>
+        <div class="fb-item">· 발열 없음</div>
+      </div>
+      <div class="fb-card">
+        <div class="fb-head">🖥️ Easy</div>
+        <div class="fb-item">· 프로그래머블 운용</div>
+        <div class="fb-item">· 터치패드 스크린 제어</div>
+      </div>
+    </div>
+
+    <div class="feature-list">
+      <div class="feature-item">
+        <div class="fi-title">Unlimited Operation Time — 무제한 운용 시간</div>
+        <div class="fi-desc">차량 엔진룸에 고성능 알터네이터를 메인 전원과 분리하여 탑재, 별도 보조전원 장치 없이 무제한 운용이 가능합니다.</div>
+      </div>
+      <div class="feature-item">
+        <div class="fi-title">Liquid Cooling System — 액체 냉각 시스템</div>
+        <div class="fi-desc">차량 에어컨과 연결된 혁신적인 액체 냉각 시스템으로 외부 온도·습도의 영향을 받지 않습니다. 주행 중에도 운전자 및 운용자 환경을 30°C 이하로 유지합니다.</div>
+      </div>
+      <div class="feature-item">
+        <div class="fi-title">Touchpad — 군사 규격 터치패드</div>
+        <div class="fi-desc">모든 운용·모니터링·프로그램 변경을 제어하는 군사 규격 터치패드 탑재. 운용자에게 더욱 다양한 커스터마이징 옵션을 제공합니다.</div>
+      </div>
+      <div class="feature-item">
+        <div class="fi-title">Reactive Jamming — 반응형 재밍</div>
+        <div class="fi-desc">RF 통신 피크 시점을 정밀하게 교란하는 고도화된 반응형 재밍 기술. 무선 대화, IED 공격 등 RF 스파이크를 효과적으로 차단합니다.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 파워 다이어그램 -->
+  <section class="section section-cream">
+    <div class="sec-label">Power System</div>
+    <h2 class="sec-title">전원 공급 구성도</h2>
+    <img class="diagram-img" src="assets/vehicle-jammer-diagram.jpg" alt="Vehicle Jammer 전원 구성도" />
+
+    <div class="cta-box">
+      <div class="cta-text">Vehicle Jammer 상세 스펙시트 및 견적을 요청해보세요.</div>
+      <a href="contact.html" class="cta-btn">문의하기 →</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 Rami International Co., Ltd. 라미인터네셔널 주식회사</div>
+  <div class="footer-links">
+    <a href="about.html" class="footer-link">회사 소개</a>
+    <a href="contact.html" class="footer-link">Contact</a>
+    <a href="privacy.html" class="footer-link">개인정보처리방침</a>
+  </div>
+</footer>
+
+<script>
+function showSection(id, tab) {
+  document.getElementById('dronesniper').style.display = 'none';
+  document.getElementById('vehiclejammer').style.display = 'none';
+  document.getElementById(id).style.display = 'block';
+  document.querySelectorAll('.prod-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+}
+</script>
+
+</body>
+</html>

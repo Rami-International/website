@@ -1,0 +1,35 @@
+# 라미인터네셔널 (Rami International Co., Ltd.)
+
+> AI 비전·방산 분야 글로벌 제조사의 한국 공급 파트너. USB 3.2 Gen 2x2 및 USB 3.0 산업용 머신비전 카메라(LYNX 시리즈), 열상 모듈, 안티드론 시스템을 공급합니다.
+
+라미인터네셔널은 검증된 해외 제조사와 직접 파트너십을 맺어 국내 산업 현장에 이미징·방산 기술 제품을 공급하는 전문 기술 공급사입니다. 제품 선정·샘플·기술 지원을 한국어로 제공합니다.
+
+## 제품: USB 머신비전 카메라 (LYNX 시리즈)
+
+LYNX (프리미엄 · USB 3.2 Gen 2x2 · 최대 20 Gbps):
+- LYNX-900: Sony IMX900, 3.2MP, 글로벌 셔터, 모노크롬. 고속·정밀 머신비전.
+- LYNX-4K: onsemi AR0821, 8.3MP 4K, 컬러, 임베디드 HDR. 고명암 환경.
+- LYNX-13M: onsemi AR1335, 13MP, 컬러, 오토포커스. 고해상·의료.
+- LYNX-20M: onsemi AR2020, 20MP, 모노크롬, 5K/4K. 초고해상 검사.
+
+LYNX Lite (보급형 · USB 3.0):
+- LYNX Lite-234: onsemi AR0234, 2.3MP, 글로벌 셔터, 컬러. 대중 머신비전.
+- LYNX Lite-900: Sony IMX900, 3.2MP, 글로벌 셔터, 모노크롬.
+- LYNX Lite-4K: onsemi AR0821, 8.3MP 4K, 컬러, HDR.
+- LYNX Lite-13M: onsemi AR1335, 13MP, 컬러, 오토포커스. 의료(안과·구강·더마토스코프·현미경·병리) 특화.
+- LYNX Lite-20M: onsemi AR2020, 20MP, 모노크롬, 5K/4K.
+
+공통: UVC 표준(드라이버 불필요), NVIDIA Jetson 즉시 연동, M12(S-마운트), Windows/Linux 지원.
+
+## 기타 제품
+- 열상 이미징 모듈 (Thermal Imaging Module): 야간·악천후 감시. 한화시스템 파트너십.
+- 안티드론 재밍 시스템 (Anti-Drone Jammer): 다중 주파수 RF 재밍.
+
+## 연락처
+- 이메일: sales@rami-intl.com
+- 전화: 010-3810-9491
+- 웹사이트: https://www.rami-intl.com
+- 주소: 서울특별시 강남구 역삼로 114 현죽빌딩 808호
+
+## 응용 분야
+AI 데이터 수집, 로보틱스·AMR, 의료·바이오 AI, 머신비전 검사, 스마트팩토리, 스마트 관제.

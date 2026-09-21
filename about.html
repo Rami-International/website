@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>회사 소개 | 라미인터네셔널</title>
+<meta name="description" content="라미인터네셔널은 AI 비전·방산 분야 글로벌 제조사의 한국 공급 파트너입니다. 한화시스템 공식 대리점.">
+<style>
+  :root {
+    --burgundy: #6b1423;
+    --burgundy-dark: #4e0e19;
+    --gold: #c8a882;
+    --gold-light: #e8d5bb;
+    --cream: #f7f4f2;
+    --white: #ffffff;
+    --text-dark: #1a1210;
+    --text-mid: #6b5c55;
+    --text-muted: #9c8880;
+    --border: #e8e0dc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Apple SD Gothic Neo","Noto Sans KR",-apple-system,sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.6; }
+  a { text-decoration: none; color: inherit; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 3rem; height: 68px; background: var(--white); border-bottom: 0.5px solid var(--border); }
+  .logo-wrap { display: flex; align-items: center; gap: 12px; }
+  .logo-img { width: 42px; height: 42px; object-fit: contain; border-radius: 9px; }
+  .logo-text { display: flex; flex-direction: column; }
+  .logo-main { font-size: 14px; font-weight: 600; color: var(--text-dark); letter-spacing: 0.05em; }
+  .logo-sub { font-size: 10px; color: var(--text-muted); letter-spacing: 0.08em; margin-top: 1px; }
+  .nav-menu { display: flex; }
+  .nav-item { font-size: 13px; color: var(--text-mid); padding: 0 16px; height: 68px; display: flex; align-items: center; border-bottom: 2px solid transparent; letter-spacing: 0.03em; transition: color 0.2s, border-color 0.2s; }
+  .nav-item:hover, .nav-item.active { color: var(--burgundy); border-bottom-color: var(--burgundy); }
+  .nav-right { display: flex; align-items: center; gap: 12px; }
+  .nav-lang { font-size: 11px; color: var(--burgundy); border: 0.5px solid var(--gold); padding: 5px 12px; border-radius: 4px; letter-spacing: 0.06em; transition: background 0.2s; }
+  .nav-lang:hover { background: var(--gold-light); }
+  .nav-contact { font-size: 12px; background: var(--burgundy); color: var(--white); padding: 8px 18px; border-radius: 4px; letter-spacing: 0.04em; transition: background 0.2s; }
+  .nav-contact:hover { background: var(--burgundy-dark); }
+
+  /* HERO IMAGE */
+  .hero-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: var(--burgundy);
+    padding: 3rem 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::after {
+    content: "";
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,168,130,0.15);
+  }
+  .ph-label { font-size: 11px; color: var(--gold); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; }
+  .ph-title { font-size: 32px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+  .ph-sub { font-size: 13px; color: rgba(255,255,255,0.5); letter-spacing: 0.02em; }
+
+  /* CONTENT */
+  .content { max-width: 860px; margin: 0 auto; padding: 4rem 3.5rem; }
+
+  /* INTRO */
+  .intro-block { margin-bottom: 4rem; }
+  .intro-block p { font-size: 15px; color: var(--text-mid); line-height: 2; margin-bottom: 1.2rem; }
+  .intro-block p strong { color: var(--text-dark); font-weight: 600; }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-left: 3px solid var(--burgundy);
+    border-radius: 0 8px 8px 0;
+    padding: 1.8rem 2rem;
+    margin: 2.5rem 0;
+  }
+  .highlight-box p { font-size: 15px; color: var(--text-mid); line-height: 1.9; margin: 0; }
+  .highlight-box p strong { color: var(--burgundy); }
+
+  /* SECTION DIVIDER */
+  .section-divider { display: flex; align-items: center; gap: 14px; margin: 3.5rem 0 2rem; }
+  .section-divider .sd-line { flex: 1; height: 0.5px; background: var(--border); }
+  .section-divider .sd-label { font-size: 11px; color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+
+  /* VALUE GRID */
+  .value-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 3.5rem; }
+  .value-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 10px; padding: 22px 24px; }
+  .vc-num { font-size: 10px; color: var(--gold); letter-spacing: 0.12em; margin-bottom: 8px; }
+  .vc-title { font-size: 14px; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; }
+  .vc-desc { font-size: 12px; color: var(--text-muted); line-height: 1.85; }
+
+  /* PARTNER BADGE */
+  .partner-badge {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--white); border: 0.5px solid var(--border);
+    border-radius: 8px; padding: 16px 20px; margin-top: 1rem;
+  }
+  .pb-icon { width: 36px; height: 36px; background: #f7eeeb; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .pb-name { font-size: 13px; font-weight: 600; color: var(--text-dark); }
+  .pb-desc { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  /* INFO TABLE */
+  .info-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+  .info-table tr { border-bottom: 0.5px solid var(--border); }
+  .info-table tr:last-child { border-bottom: none; }
+  .info-table th { width: 140px; padding: 14px 0; font-size: 12px; font-weight: 600; color: var(--text-muted); text-align: left; vertical-align: top; }
+  .info-table td { padding: 14px 0; font-size: 13px; color: var(--text-dark); line-height: 1.7; }
+
+  /* FOOTER */
+  footer { background: #1a1210; padding: 1.5rem 3.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-copy { font-size: 12px; color: #4a3c38; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-link { font-size: 12px; color: #4a3c38; transition: color 0.2s; }
+  .footer-link:hover { color: var(--gold); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-menu { display: none; }
+    .hero-image { height: 280px; }
+    .page-header { padding: 2.5rem 1.5rem; }
+    .ph-title { font-size: 26px; }
+    .content { padding: 2.5rem 1.5rem; }
+    .value-grid { grid-template-columns: 1fr; }
+    footer { padding: 1.5rem; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "\ub77c\ubbf8\uc778\ud130\ub124\uc154\ub110 \uc8fc\uc2dd\ud68c\uc0ac",
+  "alternateName": "Rami International Co., Ltd.",
+  "url": "https://www.rami-intl.com",
+  "logo": "https://www.rami-intl.com/assets/logo.png",
+  "email": "sales@rami-intl.com",
+  "telephone": "010-3810-9491",
+  "address": { "@type": "PostalAddress", "addressCountry": "KR", "addressRegion": "\uc11c\uc6b8", "streetAddress": "\uac15\ub0a8\uad6c \uc5ed\uc0bc\ub85c 114 \ud604\uc8fd\ube4c\ub529 808\ud638" },
+  "description": "AI \ube44\uc804\u00b7\ubc29\uc0b0 \ubd84\uc57c \uae00\ub85c\ubc8c \uc81c\uc870\uc0ac\uc758 \ud55c\uad6d \uacf5\uae09 \ud30c\ud2b8\ub108. USB 3.2 Gen 2x2 \uc0b0\uc5c5\uc6a9 \uba38\uc2e0\ube44\uc804 \uce74\uba54\ub77c LYNX \uc2dc\ub9ac\uc988, \uc5f4\uc0c1 \ubaa8\ub4c8, \uc548\ud2f0\ub4dc\ub860 \uc2dc\uc2a4\ud15c \uacf5\uae09.",
+  "knowsAbout": ["USB 3.2 Gen 2x2 Camera","Machine Vision Camera","Global Shutter Camera","NVIDIA Jetson Camera","Thermal Imaging","Anti-Drone System"],
+  "sameAs": []
+}
+</script>
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo-wrap">
+    <img class="logo-img" src="assets/logo.png" alt="라미인터네셔널 로고" />
+    <div class="logo-text">
+      <span class="logo-main">Rami International</span>
+      <span class="logo-sub">라미인터네셔널 주식회사</span>
+    </div>
+  </a>
+  <div class="nav-menu">
+    <a href="usb-camera.html" class="nav-item">USB 3.2 Camera</a>
+    <a href="thermal.html" class="nav-item">Thermal Module</a>
+    <a href="anti-drone.html" class="nav-item">Anti-Drone</a>
+    <a href="about.html" class="nav-item active">About</a>
+  </div>
+  <div class="nav-right">
+    <a href="/en/" class="nav-lang">EN</a>
+    <a href="contact.html" class="nav-contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO IMAGE -->
+<img class="hero-image" src="assets/about-hero.jpg" alt="라미인터네셔널 전시회 부스" />
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="ph-label">About Us</div>
+  <h1 class="ph-title">회사 소개</h1>
+  <p class="ph-sub">라미인터네셔널 주식회사</p>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <div class="intro-block">
+    <p>
+      <strong>라미인터네셔널</strong>은 방산·이미징 분야의 글로벌 첨단 기술 제품을 국내 산업 현장에 공급하는 전문 기술 공급사입니다. 검증된 해외 제조사와 직접 파트너십을 체결하여 경쟁력 있는 가격과 신속한 납기로 공급합니다.
+    </p>
+    <p>
+      당사는 <strong>한화시스템의 공식 대리점</strong>으로서 열상 감시 모듈 및 안티드론 재밍 시스템을 공급하고 있으며, 국내 주요 기관·기업을 대상으로 납품 실적을 보유하고 있습니다.
+    </p>
+
+    <div class="highlight-box">
+      <p>
+        인공신경망 기반 애플리케이션 개발에 필요한 이미징 솔루션 공급에 집중하고 있습니다. AI 개발 과정에서 발생하는 카메라 드라이버 개발, 캐리어보드 설계 등 <strong>비핵심 개발 과정을 최소화</strong>하고, 고객이 AI 알고리즘 개발에만 집중할 수 있도록 즉시 활용 가능한 최적의 이미징 솔루션을 선별·공급하기 위해 최선을 다하고 있습니다.
+      </p>
+    </div>
+
+    <p>
+      라미인터네셔널은 단순한 제품 공급에 그치지 않고, 고객의 기술 요구사항에 맞춘 커스텀 구성, 샘플 지원, 납품 후 기술 지원까지 전 과정을 함께합니다.
+    </p>
+  </div>
+
+  <!-- Core Values -->
+  <div class="section-divider">
+    <span class="sd-label">Core Values</span>
+    <span class="sd-line"></span>
+  </div>
+
+  <div class="value-grid">
+    <div class="value-card">
+      <div class="vc-num">01 — 기술 발굴</div>
+      <div class="vc-title">최적 솔루션을 먼저 찾습니다</div>
+      <div class="vc-desc">글로벌 시장에서 국내 고객에게 가장 적합한 첨단 제품을 선제적으로 발굴하고, 도입 가능성을 직접 검증한 뒤 공급합니다.</div>
+    </div>
+    <div class="value-card">
+      <div class="vc-num">02 — 고객 대응</div>
+      <div class="vc-title">고객의 필요에 즉각 반응합니다</div>
+      <div class="vc-desc">커스텀 제작, 샘플 지원, 기술 지원 등 다양한 요구사항에 즉각 대응합니다. 고객의 개발 일정에 맞춘 유연한 대응이 강점입니다.</div>
+    </div>
+    <div class="value-card">
+      <div class="vc-num">03 — 직접 파트너십</div>
+      <div class="vc-title">제조사 직계약, 납품 후 기술지원</div>
+      <div class="vc-desc">글로벌 제조사와 직접 계약을 통해 가격 경쟁력과 빠른 납기를 실현합니다. 제조사 연계 기술 지원을 한국어로 제공합니다.</div>
+    </div>
+    <div class="value-card">
+      <div class="vc-num">04 — 신뢰</div>
+      <div class="vc-title">검증된 파트너십 기반 공급</div>
+      <div class="vc-desc">한화시스템 공식 대리점으로서 쌓아온 신뢰와 납품 경험을 바탕으로, 새로운 제품군에서도 동일한 수준의 전문성을 제공합니다.</div>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 3.5rem;">
+    <div class="partner-badge">
+      <div class="pb-icon">🛡️</div>
+      <div>
+        <div class="pb-name">한화시스템 공식 대리점</div>
+        <div class="pb-desc">열상 감시 모듈 · 안티드론 재밍 시스템</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Company Info -->
+  <div class="section-divider">
+    <span class="sd-label">Company Info</span>
+    <span class="sd-line"></span>
+  </div>
+
+  <table class="info-table">
+    <tr>
+      <th>회사명</th>
+      <td>라미인터네셔널 주식회사<br><span style="font-size:12px;color:#9c8880;">Rami International Co., Ltd.</span></td>
+    </tr>
+    <tr>
+      <th>대표자</th>
+      <td>김보람</td>
+    </tr>
+    <tr>
+      <th>소재지</th>
+      <td>서울특별시</td>
+    </tr>
+    <tr>
+      <th>사업 분야</th>
+      <td>방산·이미징 기술 제품 수출입 및 공급</td>
+    </tr>
+    <tr>
+      <th>홈페이지</th>
+      <td>www.rami-intl.com</td>
+    </tr>
+    <tr>
+      <th>문의</th>
+      <td><a href="contact.html" style="color:var(--burgundy);">Contact 페이지 바로가기 →</a></td>
+    </tr>
+  </table>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 Rami International Co., Ltd. 라미인터네셔널 주식회사</div>
+  <div class="footer-links">
+    <a href="about.html" class="footer-link">회사 소개</a>
+    <a href="contact.html" class="footer-link">Contact</a>
+    <a href="privacy.html" class="footer-link">개인정보처리방침</a>
+  </div>
+</footer>
+
+</body>
+</html>

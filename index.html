@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>라미인터네셔널 | Rami International</title>
+<meta name="description" content="AI 비전·방산 분야 글로벌 제조사의 한국 공급 파트너. USB 3.2 Gen 2x2 카메라, 열상모듈, 안티드론 시스템 공급.">
+<style>
+  :root {
+    --burgundy: #6b1423;
+    --burgundy-dark: #4e0e19;
+    --gold: #c8a882;
+    --gold-light: #e8d5bb;
+    --cream: #f7f4f2;
+    --white: #ffffff;
+    --text-dark: #1a1210;
+    --text-mid: #6b5c55;
+    --text-muted: #9c8880;
+    --border: #e8e0dc;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    height: 68px;
+    background: var(--white);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .logo-wrap { display: flex; align-items: center; gap: 12px; }
+  .logo-img { width: 42px; height: 42px; object-fit: contain; border-radius: 9px; }
+  .logo-text { display: flex; flex-direction: column; }
+  .logo-main { font-size: 14px; font-weight: 600; color: var(--text-dark); letter-spacing: 0.05em; }
+  .logo-sub { font-size: 10px; color: var(--text-muted); letter-spacing: 0.08em; margin-top: 1px; }
+
+  .nav-menu { display: flex; }
+  .nav-item {
+    font-size: 13px;
+    color: var(--text-mid);
+    padding: 0 16px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    letter-spacing: 0.03em;
+    transition: color 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .nav-item:hover, .nav-item.active {
+    color: var(--burgundy);
+    border-bottom-color: var(--burgundy);
+  }
+
+  .nav-right { display: flex; align-items: center; gap: 12px; }
+  .nav-lang {
+    font-size: 11px;
+    color: var(--burgundy);
+    border: 0.5px solid var(--gold);
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    transition: background 0.2s;
+  }
+  .nav-lang:hover { background: var(--gold-light); }
+  .nav-contact {
+    font-size: 12px;
+    background: var(--burgundy);
+    color: var(--white);
+    padding: 8px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: background 0.2s;
+  }
+  .nav-contact:hover { background: var(--burgundy-dark); }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 480px;
+  }
+
+  .hero-left {
+    padding: 5rem 3.5rem 4rem;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero-tag-line { width: 24px; height: 1px; background: var(--gold); display: inline-block; }
+
+  .hero-title {
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text-dark);
+    margin-bottom: 1.2rem;
+  }
+  .hero-title em { color: var(--burgundy); font-style: normal; }
+
+  .hero-sub {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    margin-bottom: 2.5rem;
+    max-width: 420px;
+  }
+
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--burgundy);
+    color: var(--white);
+    font-size: 13px;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    border: none;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--burgundy-dark); }
+  .btn-outline {
+    border: 1px solid var(--gold);
+    color: var(--burgundy);
+    font-size: 13px;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    background: transparent;
+    transition: background 0.2s;
+  }
+  .btn-outline:hover { background: var(--gold-light); }
+
+  .hero-right {
+    background: var(--burgundy);
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+  }
+
+  .hero-stat { border-left: 2px solid rgba(200,168,130,0.35); padding-left: 18px; }
+  .stat-label { font-size: 10px; color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 5px; }
+  .stat-val { font-size: 18px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+  .stat-desc { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+  /* ── SECTION COMMON ── */
+  .section { padding: 4rem 3.5rem; }
+  .section-white { background: var(--white); }
+  .sec-label { font-size: 11px; color: var(--gold); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 8px; }
+  .sec-title { font-size: 22px; font-weight: 600; color: var(--text-dark); margin-bottom: 2rem; }
+
+  /* ── PRODUCTS ── */
+  .prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  .prod-card {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    cursor: pointer;
+    transition: border-color 0.25s, transform 0.2s;
+  }
+  .prod-card:hover { border-color: var(--burgundy); transform: translateY(-2px); }
+
+  .pc-icon {
+    width: 40px; height: 40px;
+    background: #f7eeeb;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+    font-size: 20px;
+    color: var(--burgundy);
+  }
+  .pc-name { font-size: 14px; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; line-height: 1.4; }
+  .pc-desc { font-size: 12px; color: var(--text-muted); line-height: 1.8; }
+  .pc-link {
+    font-size: 12px; color: var(--burgundy);
+    margin-top: 16px;
+    display: flex; align-items: center; gap: 4px;
+    font-weight: 500;
+  }
+
+  /* ── WHY ── */
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .why-item { border-left: 2px solid var(--gold-light); padding-left: 18px; }
+  .why-num { font-size: 10px; color: var(--gold); letter-spacing: 0.12em; margin-bottom: 8px; }
+  .why-title { font-size: 14px; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; }
+  .why-desc { font-size: 12px; color: var(--text-muted); line-height: 1.85; }
+
+  /* ── DIVIDER ── */
+  .divider { height: 0.5px; background: var(--border); margin: 0 3.5rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #1a1210;
+    padding: 1.5rem 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-copy { font-size: 12px; color: #4a3c38; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-link { font-size: 12px; color: #4a3c38; cursor: pointer; transition: color 0.2s; }
+  .footer-link:hover { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-menu { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { padding: 2.5rem 1.5rem; }
+    .hero-left { padding: 3rem 1.5rem; }
+    .hero-title { font-size: 26px; }
+    .section { padding: 3rem 1.5rem; }
+    .prod-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; gap: 20px; }
+    .divider { margin: 0 1.5rem; }
+    footer { padding: 1.5rem; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "\ub77c\ubbf8\uc778\ud130\ub124\uc154\ub110 \uc8fc\uc2dd\ud68c\uc0ac",
+  "alternateName": "Rami International Co., Ltd.",
+  "url": "https://www.rami-intl.com",
+  "logo": "https://www.rami-intl.com/assets/logo.png",
+  "email": "sales@rami-intl.com",
+  "telephone": "010-3810-9491",
+  "address": { "@type": "PostalAddress", "addressCountry": "KR", "addressRegion": "\uc11c\uc6b8", "streetAddress": "\uac15\ub0a8\uad6c \uc5ed\uc0bc\ub85c 114 \ud604\uc8fd\ube4c\ub529 808\ud638" },
+  "description": "AI \ube44\uc804\u00b7\ubc29\uc0b0 \ubd84\uc57c \uae00\ub85c\ubc8c \uc81c\uc870\uc0ac\uc758 \ud55c\uad6d \uacf5\uae09 \ud30c\ud2b8\ub108. USB 3.2 Gen 2x2 \uc0b0\uc5c5\uc6a9 \uba38\uc2e0\ube44\uc804 \uce74\uba54\ub77c LYNX \uc2dc\ub9ac\uc988, \uc5f4\uc0c1 \ubaa8\ub4c8, \uc548\ud2f0\ub4dc\ub860 \uc2dc\uc2a4\ud15c \uacf5\uae09.",
+  "knowsAbout": ["USB 3.2 Gen 2x2 Camera","Machine Vision Camera","Global Shutter Camera","NVIDIA Jetson Camera","Thermal Imaging","Anti-Drone System"],
+  "sameAs": []
+}
+</script>
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo-wrap">
+    <img class="logo-img" src="assets/logo.png" alt="라미인터네셔널 로고" />
+    <div class="logo-text">
+      <span class="logo-main">Rami International</span>
+      <span class="logo-sub">라미인터네셔널 주식회사</span>
+    </div>
+  </a>
+  <div class="nav-menu">
+    <a href="usb-camera.html" class="nav-item">USB 3.2 Camera</a>
+    <a href="thermal.html" class="nav-item">Thermal Module</a>
+    <a href="anti-drone.html" class="nav-item">Anti-Drone</a>
+    <a href="about.html" class="nav-item">About</a>
+  </div>
+  <div class="nav-right">
+    <a href="/en/" class="nav-lang">EN</a>
+    <a href="contact.html" class="nav-contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">
+      <span class="hero-tag-line"></span>
+      Trusted Technology Supplier
+    </div>
+    <h1 class="hero-title">
+      인공신경망의 눈,<br>
+      <em>이미징 시스템의</em><br>
+      신뢰할 수 있는 공급 파트너
+    </h1>
+    <p class="hero-sub">
+      AI 비전·방산 분야 글로벌 제조사의 한국 공급 파트너.<br>
+      제품 선정부터 기술 지원, 납품까지 일괄 대응합니다.
+    </p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-primary">제품 라인업 보기</a>
+      <a href="contact.html" class="btn-outline">문의하기</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat">
+      <div class="stat-label">Vision</div>
+      <div class="stat-val">USB 3.2 Gen 2×2</div>
+      <div class="stat-desc">20 Gbps · NVIDIA Jetson 즉시 연동<br>드라이버·캐리어보드 개발 불필요</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-label">Defense</div>
+      <div class="stat-val">Thermal + Anti-Drone</div>
+      <div class="stat-desc">한화시스템 공급망 연계<br>야간·악천후 환경 검증 완료</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+  <div class="sec-label">Products</div>
+  <div class="sec-title">제품군</div>
+  <div class="prod-grid">
+    <a href="usb-camera.html" class="prod-card">
+      <div class="pc-icon">&#128247;</div>
+      <div class="pc-name">USB 3.2 Gen 2×2 Camera Module</div>
+      <div class="pc-desc">20Gbps 초고속 인터페이스. NVIDIA Jetson과 즉시 연동. AI 학습, 로보틱스, 의료영상 최적화.</div>
+      <div class="pc-link">자세히 보기 →</div>
+    </a>
+    <a href="thermal.html" class="prod-card">
+      <div class="pc-icon">&#128065;</div>
+      <div class="pc-name">Thermal Imaging Module</div>
+      <div class="pc-desc">야간·악천후 열상 감시. 한화시스템 파트너십 기반 공급. 보안·국방·산업 현장 적용.</div>
+      <div class="pc-link">자세히 보기 →</div>
+    </a>
+    <a href="anti-drone.html" class="prod-card">
+      <div class="pc-icon">&#128225;</div>
+      <div class="pc-name">Anti-Drone Jammer System</div>
+      <div class="pc-desc">다중 주파수 RF 재밍으로 불법 드론 무력화. 주요 인프라·행사·시설 보호에 실증된 솔루션.</div>
+      <div class="pc-link">자세히 보기 →</div>
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY RAMI -->
+<section class="section section-white">
+  <div class="sec-label">Why Rami</div>
+  <div class="sec-title">라미인터네셔널과 함께하는 이유</div>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-num">01 — AI 비전 통합</div>
+      <div class="why-title">Plug &amp; Play AI 이미징</div>
+      <div class="why-desc">NVIDIA Jetson 칩과 USB 카메라·시리얼이 즉시 동작하는 솔루션을 발굴·공급합니다.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">02 — 고객 대응</div>
+      <div class="why-title">고객의 필요에 즉각 반응합니다</div>
+      <div class="why-desc">고객의 니즈에 맞추기 위한 커스텀 제작, 샘플 지원, 기술 지원 등 다양한 요구사항에 즉각 대응합니다.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">03 — 직접 파트너십</div>
+      <div class="why-title">제조사 직계약, 납품 후 기술지원</div>
+      <div class="why-desc">글로벌 제조사와 직접 계약하여 중간 유통 없이 공급합니다. 납품 이후에도 제조사 연계 기술 지원을 한국어로 제공합니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 Rami International Co., Ltd. 라미인터네셔널 주식회사</div>
+  <div class="footer-links">
+    <a href="about.html" class="footer-link">회사 소개</a>
+    <a href="contact.html" class="footer-link">Contact</a>
+    <a href="privacy.html" class="footer-link">개인정보처리방침</a>
+  </div>
+</footer>
+
+</body>
+</html>

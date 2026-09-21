@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | 라미인터네셔널</title>
+<meta name="description" content="라미인터네셔널 문의하기. 제품 견적, 기술 문의, 샘플 요청 등 이메일로 연락주세요.">
+<style>
+  :root {
+    --burgundy: #6b1423;
+    --burgundy-dark: #4e0e19;
+    --gold: #c8a882;
+    --gold-light: #e8d5bb;
+    --cream: #f7f4f2;
+    --white: #ffffff;
+    --text-dark: #1a1210;
+    --text-mid: #6b5c55;
+    --text-muted: #9c8880;
+    --border: #e8e0dc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Apple SD Gothic Neo","Noto Sans KR",-apple-system,sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.6; }
+  a { text-decoration: none; color: inherit; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 3rem; height: 68px; background: var(--white); border-bottom: 0.5px solid var(--border); }
+  .logo-wrap { display: flex; align-items: center; gap: 12px; }
+  .logo-img { width: 42px; height: 42px; object-fit: contain; border-radius: 9px; }
+  .logo-text { display: flex; flex-direction: column; }
+  .logo-main { font-size: 14px; font-weight: 600; color: var(--text-dark); letter-spacing: 0.05em; }
+  .logo-sub { font-size: 10px; color: var(--text-muted); letter-spacing: 0.08em; margin-top: 1px; }
+  .nav-menu { display: flex; }
+  .nav-item { font-size: 13px; color: var(--text-mid); padding: 0 16px; height: 68px; display: flex; align-items: center; border-bottom: 2px solid transparent; letter-spacing: 0.03em; transition: color 0.2s, border-color 0.2s; }
+  .nav-item:hover, .nav-item.active { color: var(--burgundy); border-bottom-color: var(--burgundy); }
+  .nav-right { display: flex; align-items: center; gap: 12px; }
+  .nav-lang { font-size: 11px; color: var(--burgundy); border: 0.5px solid var(--gold); padding: 5px 12px; border-radius: 4px; letter-spacing: 0.06em; transition: background 0.2s; }
+  .nav-lang:hover { background: var(--gold-light); }
+  .nav-contact { font-size: 12px; background: var(--burgundy); color: var(--white); padding: 8px 18px; border-radius: 4px; letter-spacing: 0.04em; transition: background 0.2s; }
+  .nav-contact:hover { background: var(--burgundy-dark); }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: var(--burgundy);
+    padding: 4rem 3.5rem 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::after {
+    content: "";
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,168,130,0.15);
+  }
+  .ph-label { font-size: 11px; color: var(--gold); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 12px; }
+  .ph-title { font-size: 36px; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+  .ph-sub { font-size: 14px; color: rgba(255,255,255,0.55); }
+
+  /* CONTENT */
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 3.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* LEFT — 안내 */
+  .contact-info h2 { font-size: 20px; font-weight: 600; color: var(--text-dark); margin-bottom: 1rem; }
+  .contact-info p { font-size: 14px; color: var(--text-mid); line-height: 1.9; margin-bottom: 2rem; }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 0;
+    border-top: 0.5px solid var(--border);
+  }
+  .contact-item:last-child { border-bottom: 0.5px solid var(--border); }
+  .ci-icon {
+    width: 36px; height: 36px;
+    background: #f7eeeb;
+    border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .ci-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.06em; margin-bottom: 4px; }
+  .ci-value { font-size: 14px; color: var(--text-dark); font-weight: 500; }
+  .ci-value a { color: var(--burgundy); }
+
+  .inquiry-types { margin-top: 2rem; }
+  .inquiry-types h3 { font-size: 13px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+  .inquiry-tag {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--burgundy);
+    background: #f7eeeb;
+    border: 0.5px solid var(--gold-light);
+    border-radius: 20px;
+    padding: 5px 14px;
+    margin: 4px 4px 4px 0;
+  }
+
+  /* RIGHT — 폼 */
+  .contact-form { background: var(--white); border: 0.5px solid var(--border); border-radius: 12px; padding: 2rem; }
+  .contact-form h2 { font-size: 16px; font-weight: 600; color: var(--text-dark); margin-bottom: 1.5rem; }
+
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; letter-spacing: 0.04em; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--text-dark);
+    background: var(--cream);
+    border: 0.5px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--burgundy); background: var(--white); }
+  .form-group textarea { resize: vertical; min-height: 120px; line-height: 1.7; }
+
+  .form-submit {
+    width: 100%;
+    padding: 13px;
+    background: var(--burgundy);
+    color: var(--white);
+    font-size: 13px;
+    font-family: inherit;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: background 0.2s;
+    margin-top: 4px;
+  }
+  .form-submit:hover { background: var(--burgundy-dark); }
+
+  .form-notice { font-size: 11px; color: var(--text-muted); margin-top: 12px; line-height: 1.7; text-align: center; }
+
+  /* FOOTER */
+  footer { background: #1a1210; padding: 1.5rem 3.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-copy { font-size: 12px; color: #4a3c38; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-link { font-size: 12px; color: #4a3c38; transition: color 0.2s; }
+  .footer-link:hover { color: var(--gold); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-menu { display: none; }
+    .page-header { padding: 3rem 1.5rem 2.5rem; }
+    .ph-title { font-size: 26px; }
+    .content { grid-template-columns: 1fr; gap: 2.5rem; padding: 2.5rem 1.5rem; }
+    footer { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo-wrap">
+    <img class="logo-img" src="assets/logo.png" alt="라미인터네셔널 로고" />
+    <div class="logo-text">
+      <span class="logo-main">Rami International</span>
+      <span class="logo-sub">라미인터네셔널 주식회사</span>
+    </div>
+  </a>
+  <div class="nav-menu">
+    <a href="usb-camera.html" class="nav-item">USB 3.2 Camera</a>
+    <a href="thermal.html" class="nav-item">Thermal Module</a>
+    <a href="anti-drone.html" class="nav-item">Anti-Drone</a>
+    <a href="about.html" class="nav-item">About</a>
+  </div>
+  <div class="nav-right">
+    <a href="/en/" class="nav-lang">EN</a>
+    <a href="contact.html" class="nav-contact">Contact</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="ph-label">Contact</div>
+  <h1 class="ph-title">문의하기</h1>
+  <p class="ph-sub">제품 견적, 기술 문의, 샘플 요청 등 무엇이든 편하게 연락주세요.</p>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- LEFT -->
+  <div class="contact-info">
+    <h2>라미인터네셔널에<br>문의해주세요</h2>
+    <p>제품에 대한 궁금한 점, 견적 요청, 기술 검토 등 어떤 문의든 환영합니다. 최대한 빠르게 답변드리겠습니다.</p>
+
+    <div class="contact-item">
+      <div class="ci-icon">✉️</div>
+      <div>
+        <div class="ci-label">이메일</div>
+        <div class="ci-value"><a href="mailto:sales@rami-intl.com">sales@rami-intl.com</a></div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="ci-icon">📞</div>
+      <div>
+        <div class="ci-label">전화</div>
+        <div class="ci-value"><a href="tel:01038109491">010-3810-9491</a></div>
+      </div>
+    </div>
+        <div class="contact-item">
+      <div class="ci-icon">📍</div>
+      <div>
+        <div class="ci-label">주소</div>
+        <div class="ci-value">서울시 강남구 역삼로 114<br>현죽빌딩 808호</div>
+      </div>
+    </div>
+        <div class="contact-item">
+      <div class="ci-icon">🌐</div>
+      <div>
+        <div class="ci-label">홈페이지</div>
+        <div class="ci-value">www.rami-intl.com</div>
+      </div>
+    </div>
+
+    <div class="inquiry-types">
+      <h3>문의 유형</h3>
+      <span class="inquiry-tag">제품 견적</span>
+      <span class="inquiry-tag">기술 문의</span>
+      <span class="inquiry-tag">샘플 요청</span>
+      <span class="inquiry-tag">납품 일정</span>
+      <span class="inquiry-tag">파트너십</span>
+      <span class="inquiry-tag">기타</span>
+    </div>
+  </div>
+
+  <!-- RIGHT — FORM -->
+  <div class="contact-form">
+    <h2>문의 양식</h2>
+    <form action="mailto:sales@rami-intl.com" method="post" enctype="text/plain">
+      <div class="form-group">
+        <label>회사명 / 성함</label>
+        <input type="text" name="name" placeholder="회사명 또는 성함을 입력해주세요" required />
+      </div>
+      <div class="form-group">
+        <label>이메일</label>
+        <input type="email" name="email" placeholder="답변받으실 이메일 주소" required />
+      </div>
+      <div class="form-group">
+        <label>문의 유형</label>
+        <select name="type">
+          <option value="">선택해주세요</option>
+          <option value="견적">제품 견적</option>
+          <option value="기술">기술 문의</option>
+          <option value="샘플">샘플 요청</option>
+          <option value="납품">납품 일정</option>
+          <option value="파트너십">파트너십</option>
+          <option value="기타">기타</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>문의 내용</label>
+        <textarea name="message" placeholder="문의 내용을 자유롭게 작성해주세요." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">문의 보내기</button>
+      <p class="form-notice">또는 직접 이메일로 문의하실 수 있습니다.<br>sales@rami-intl.com</p>
+    </form>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 Rami International Co., Ltd. 라미인터네셔널 주식회사</div>
+  <div class="footer-links">
+    <a href="about.html" class="footer-link">회사 소개</a>
+    <a href="contact.html" class="footer-link">Contact</a>
+    <a href="privacy.html" class="footer-link">개인정보처리방침</a>
+  </div>
+</footer>
+
+</body>
+</html>
